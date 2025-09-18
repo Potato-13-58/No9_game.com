@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>100を超えたら負けゲーム</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Main menu -->
+    <section id="menu" class="screen active">
+      <h1 class="title">100を超えたら負け</h1>
+      <div class="menu-buttons">
+        <button id="normalModeBtn" class="big-btn">ノーマルモード</button>
+        <button id="itemModeBtn" class="big-btn">アイテムモード</button>
+      </div>
+      <p class="hint">（プレイヤー人数は何人でも追加できます）</p>
+    </section>
+
+    <!-- Setup screen -->
+    <section id="setup" class="screen">
+      <h2 id="setupTitle">ゲーム設定 - <span id="modeLabel">ノーマル</span></h2>
+
+      <div class="add-player">
+        <input id="playerNameInput" placeholder="プレイヤー名を入力" maxlength="20" />
+        <button id="addPlayerBtn">送信</button>
+      </div>
+
+      <div id="playerList" class="player-list"></div>
+
+      <div class="setup-actions">
+        <button id="shuffleBtn" class="big-btn">順番を決める</button>
+        <div id="shufflePreview" class="shuffle-preview"></div>
+        <button id="startBtn" class="big-btn hidden">スタート</button>
+        <button id="nextBtn" class="big-btn hidden">次へ（カード引く）</button>
+      </div>
+
+      <button id="backToMenuFromSetup" class="link-btn">メインメニューに戻る</button>
+    </section>
+
+    <!-- Item draw screen (during card distribution) -->
+    <section id="draw" class="screen">
+      <h2>カード配布 - <span id="drawPlayerName"></span></h2>
+      <div id="gachaArea" class="gacha-area">
+        <div id="cardSlots" class="card-slots"></div>
+      </div>
+      <div class="draw-actions">
+        <button id="drawBtn" class="big-btn">カードを引く</button>
+        <button id="drawNextBtn" class="big-btn hidden">引けた → 次へ</button>
+      </div>
+      <button id="backToMenuFromDraw" class="link-btn">メインメニューに戻る</button>
+    </section>
+
+    <!-- Game screen -->
+    <section id="game" class="screen">
+      <div class="top-row">
+        <div class="turn-box">
+          <div class="label">現在のターン</div>
+          <div id="currentPlayerName" class="current-player">-</div>
+        </div>
+        <div class="total-box">
+          <div class="label">合計点</div>
+          <div id="totalValue" class="total">0</div>
+        </div>
+      </div>
+
+      <div class="center-area">
+        <div id="controls" class="controls">
+          <button class="num-btn" data-val="1">1</button>
+          <button class="num-btn" data-val="2">2</button>
+          <button class="num-btn" data-val="3">3</button>
+        </div>
+
+        <div class="item-panel-wrap">
+          <div class="label">アイテムパネル（ここにドラッグ＆ドロップ）</div>
+          <div id="dropPanel" class="drop-panel">ここにカードをドロップ</div>
+        </div>
+      </div>
+
+      <div id="handArea" class="hand-area">
+        <h3>あなたのカード（現在のプレイヤーのみ表示）</h3>
+        <div id="handCards" class="hand-cards"></div>
+      </div>
+
+      <div class="bottom-controls">
+        <div id="playerCardCounts" class="player-card-counts"></div>
+        <button id="toMenuBtn" class="link-btn">メインメニューに戻る</button>
+      </div>
+    </section>
+
+    <!-- End screen / Result -->
+    <section id="result" class="screen">
+      <h2 id="resultTitle">ゲーム終了</h2>
+      <p id="resultText"></p>
+      <button id="resultToMenu" class="big-btn">メインメニューに戻る</button>
+    </section>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

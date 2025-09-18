@@ -1,0 +1,66 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#6ee7b7;
+  --muted:#98a0b3;
+  --panel:#0b1520;
+  --glass: rgba(255,255,255,0.04);
+}
+
+*{box-sizing:border-box;font-family: "Segoe UI", Meiryo, system-ui, sans-serif}
+html,body,#app{height:100%;margin:0;background:linear-gradient(180deg,#071021 0%, #0b1630 100%); color:#e6eef6}
+.screen{display:none;padding:28px;max-width:980px;margin:20px auto;border-radius:12px}
+.screen.active{display:block;background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow: 0 8px 30px rgba(2,6,23,0.6); padding:30px}
+.title{font-size:28px;margin:6px 0 18px}
+.big-btn{background:linear-gradient(90deg,var(--accent),#34b3ff);border:none;color:#042; padding:14px 22px;border-radius:12px;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(16,38,60,0.45)}
+.link-btn{background:none;border:none;color:var(--accent);cursor:pointer;padding:8px;margin-top:12px}
+.menu-buttons{display:flex;gap:18px;justify-content:center;margin:22px 0}
+.hint{text-align:center;color:var(--muted)}
+
+.add-player{display:flex;gap:8px;margin-bottom:12px}
+.add-player input{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+.add-player button{padding:10px 14px;border-radius:8px;border:none;background:var(--accent);cursor:pointer}
+
+.player-list{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.player-card{background:var(--panel);padding:10px 12px;border-radius:10px;min-width:140px;position:relative;box-shadow:0 6px 18px rgba(0,0,0,0.4)}
+.player-card .delete{position:absolute;right:6px;top:6px;background:transparent;border:none;color:var(--muted);cursor:pointer}
+.player-card .pname{font-weight:700}
+
+.setup-actions{margin-top:16px;display:flex;gap:12px;align-items:center}
+.shuffle-preview{min-height:42px;padding:8px;border-radius:8px;background:var(--glass);color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.hidden{display:none !important}
+
+/* draw screen */
+.gacha-area{display:flex;justify-content:center;align-items:center;padding:12px}
+.card-slots{display:flex;gap:12px}
+.gacha-card{width:120px;height:160px;border-radius:10px;background:linear-gradient(180deg,#0b1b25,#07202b);display:flex;justify-content:center;align-items:center;color:#fff;font-weight:800;box-shadow:0 10px 30px rgba(0,0,0,0.6);transform:translateY(-20px);opacity:0}
+.gacha-card.show{animation:pop .45s forwards}
+@keyframes pop{to{transform:none;opacity:1}}
+
+/* game screen */
+.top-row{display:flex;gap:18px;align-items:center;justify-content:space-between;margin-bottom:18px}
+.turn-box,.total-box{background:var(--panel);padding:12px;border-radius:10px;min-width:160px;text-align:center}
+.label{font-size:12px;color:var(--muted)}
+.current-player{font-size:18px;font-weight:800;margin-top:6px}
+.total{font-size:44px;font-weight:900;margin-top:6px;color:var(--accent)}
+
+.center-area{display:flex;gap:18px;align-items:flex-start;justify-content:center;margin-top:8px}
+.controls{display:flex;flex-direction:column;gap:8px}
+.num-btn{padding:16px 24px;border-radius:10px;border:none;font-size:18px;font-weight:800;cursor:pointer;background:linear-gradient(90deg,#1f6fff,#27c4a6);color:white;box-shadow:0 10px 30px rgba(39,68,110,0.35)}
+.item-panel-wrap{min-width:320px;text-align:left}
+.drop-panel{height:120px;border-radius:10px;border:2px dashed rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);color:var(--muted);padding:8px}
+
+.hand-area{margin-top:18px;background:var(--panel);padding:12px;border-radius:10px}
+.hand-cards{display:flex;gap:8px;min-height:120px;align-items:center;padding:8px}
+.card{width:96px;height:140px;border-radius:8px;background:linear-gradient(180deg,#0b1b25,#07202b);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.6)}
+.card.face-down{background:linear-gradient(180deg,#212a34,#161c22);color:transparent}
+.card.small{width:64px;height:96px;font-size:12px}
+.player-card-counts{margin-top:8px;color:var(--muted)}
+.player-card-counts .count{display:inline-block;padding:6px 10px;background:var(--glass);border-radius:8px;margin-right:8px}
+
+/* result */
+#result{ text-align:center}
+#resultText{font-weight:700;font-size:18px;margin:12px 0}
+
+/* misc */
+.hidden{display:none}
